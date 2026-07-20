@@ -39,6 +39,7 @@ Tools
 Wazuh · VirtualBox · Kali Linux · Windows 11 · Ubuntu Server · Hydra · MITRE ATT&CK
 
 Skills
+
 SIEM · Log Analysis · Threat Detection · MITRE ATT&CK · Windows Event Logs · Network Troubleshooting · Linux Administration
 
 `SIEM` · `Log Analysis` · `Threat Detection` · `MITRE ATT&CK` · `Windows Event
