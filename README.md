@@ -35,6 +35,7 @@ Most of the work was troubleshooting (scanning false negatives, network false
 alarms, SIEM startup failures), which taught me more than the tools themselves.
 
 Tools
+
 Wazuh · VirtualBox · Kali Linux · Windows 11 · Ubuntu Server · Hydra · MITRE ATT&CK
 
 Skills
