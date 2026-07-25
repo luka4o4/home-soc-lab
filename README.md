@@ -24,6 +24,7 @@ Simulated an **RDP brute-force attack** (T1110) with Hydra from Kali. Wazuh
 captured all failed logins and **automatically escalated them to a level-10
 "Multiple Windows Logon Failures" alert**, classified as **Brute Force** under
 MITRE ATT&CK.
+![Wazuh dashboard detecting the brute-force attack and mapping it to MITRE ATT&CK](screenshots/02-wazuh-dashboard.png)
 
 📄 [Full writeup — including the issues I hit and how I solved them](rdp-bruteforce-detection-writeup.md)
 
