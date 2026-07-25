@@ -23,7 +23,7 @@ which makes this attack reliably detectable.
 | Kali Linux | Attacker | 10.0.2.15 |
 | Windows 11 Endpoint | Target (victim) | 10.0.2.5 |
 | Wazuh Server | SIEM (collects & analyses logs) | 10.0.2.4 |
-
+![Wazuh agent detail view confirming the Windows endpoint is active and monitored](screenshots/05-agent-monitored.png)
 All three run on an isolated VirtualBox NAT Network ("SOC LAB"). The Windows
 endpoint runs the Wazuh agent, which forwards its security logs to the Wazuh
 server.
@@ -54,6 +54,8 @@ hydra -l administrator -P passwords.txt -t 1 -f 10.0.2.5 rdp
 - `-t 1` → one attempt at a time (RDP is sensitive to parallel connections)
 - `-f` → stop if a valid password is found
 - `10.0.2.5 rdp` → the target machine and the service to attack
+
+- ![Hydra running the RDP brute-force attack from Kali](screenshots/01-hydra-attack.png)
 
 ---
 
@@ -141,6 +143,8 @@ data.win.system.eventID:4625
 | Logon Failure – Unknown user or bad password | 60122 | 5 | Each individual failed login attempt |
 | **Multiple Windows Logon Failures** | **60204** | **10** | **Wazuh recognised the brute-force *pattern* and raised a higher-severity alert** |
 
+![Wazuh event list showing the 9 failed logins and the level-10 Multiple Windows Logon Failures alert](screenshots/03-event-list.png)
+
 The key insight: Wazuh did not just log the individual failures. Its correlation
 engine noticed **several failed logins from the same source in a very short
 window** and automatically fired a **higher-severity (level 10) alert —
@@ -162,6 +166,7 @@ the visual signature of the attack landing in a short burst.
 
 When I drilled into an individual failed-logon event, I noticed the logged
 source (`data.win.eventdata.ipAddress`) was **`127.0.0.1`** with **logon type 2
+![Expanded event detail showing the logged source IP and Windows failure codes](screenshots/04-event-drilldown.png)
 (interactive)**, rather than the attacker's real IP (`10.0.2.15`) with a network
 logon type. In other words, the alert fired correctly, but the event's recorded
 source did **not** directly point to the true origin of the attack.
