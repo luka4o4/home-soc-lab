@@ -25,7 +25,7 @@ captured all failed logins and **automatically escalated them to a level-10
 "Multiple Windows Logon Failures" alert**, classified as **Brute Force** under
 MITRE ATT&CK.
 
-📄 [Full writeup — including the issues I hit and how I solved them](docs/rdp-bruteforce-detection-writeup.md)
+📄 [Full writeup — including the issues I hit and how I solved them](rdp-bruteforce-detection-writeup.md)
 
  Key Takeaway
 
